@@ -10,6 +10,10 @@ import UIKit
 
 class SecondWhiteVC: UIViewController {
 	
+	@IBAction func popToOrangeTapped(_ sender: Any) {
+		navigationController?.popViewController(animated: true)
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -19,6 +23,10 @@ class SecondWhiteVC: UIViewController {
 }
 
 class SecondOrangeVC: UIViewController {
+	
+	@IBAction func popToBlackTapped(_ sender: Any) {
+		navigationController?.popViewController(animated: true)
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -37,9 +45,9 @@ class SecondBlackVC: UIViewController {
 		if let ovc = sBoard.instantiateViewController(withIdentifier: "secondOrangeVC") as? SecondOrangeVC,
 			let wvc = sBoard.instantiateViewController(withIdentifier: "secondWhiteVC") as? SecondWhiteVC {
 			
-			let vcs = [ovc, wvc]
+			let vcs = [self, ovc, wvc]
 			
-			self.navigationController?.viewControllers = vcs
+			self.navigationController?.setViewControllers(vcs, animated: true)
 			
 		}
 		
